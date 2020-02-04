@@ -5,7 +5,7 @@ import './App.css';
 function test() {
   console.log('test hahahh');
 
-  fetch('http://gateway.marvel.com/v1/public/comics?ts=1&apikey=f973e191e288fda12db9c1c66ef360ed&hash=306c69dd41a3d073cf332c6f8df67a18')
+  fetch('https://gateway.marvel.com/v1/public/comics?ts=1&apikey=f973e191e288fda12db9c1c66ef360ed&hash=306c69dd41a3d073cf332c6f8df67a18')
   .then((response) => {
     return response.json();
   })
