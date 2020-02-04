@@ -2,6 +2,20 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+function test() {
+  console.log('test hahahh');
+
+  fetch('https://gateway.marvel.com:443/v1/public/characters?apikey=f973e191e288fda12db9c1c66ef360ed')
+  .then((response) => {
+    return response.json();
+  })
+  .then((myJson) => {
+    console.log(myJson);
+  });
+}
+
+test();
+
 function App() {
   return (
     <div className="App">
