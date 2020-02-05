@@ -11,7 +11,7 @@ class App extends Component {
         }
         return (
             <div>
-              <h1>Marvels</h1>
+              <h1>Marvel Characters</h1>
               {contactsItems}
             </div>
         )
