@@ -33,7 +33,7 @@ class App extends React.Component {
       searchcharacters: searchtext,
     });
 
-    this.handleEndpoint(this.state.searchcharacters);
+    this.handleEndpoint(searchtext);
   }
 
   componentDidMount() {
