@@ -1,6 +1,9 @@
 import React from 'react'
 
-const ListCharacters = ({characters}) => {
+class ListCharacters extends React.Component {
+  render() {
+    let characters = this.props.characters;
+
     return (
         <div>
             <div className="card">
@@ -15,6 +18,7 @@ const ListCharacters = ({characters}) => {
             </div>
         </div>
     )
-};
+  }
+}
 
 export default ListCharacters

@@ -1,14 +1,24 @@
 import React from 'react'
+// import { render } from '@testing-library/react';
 
-const SearchCharacters = ({searchcharacter}) => {
-    return (
-        <div className="search-characters">
-            <form className="form-inline my-2 my-lg-0">
-                <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    )
-};
+class SearchCharacters extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleCharChange = this.handleCharChange.bind(this);
+    }
+
+    handleCharChange(e) {
+        this.props.onSearchCharChange(e.target.value);
+    }
+
+    render() {
+        let searchtext = this.props.searchtext;
+        return (
+            <div className="search-characters">
+                <input className="mr-sm-2" value={searchtext} onChange={this.handleCharChange} />
+            </div>
+        )
+    }
+}
 
 export default SearchCharacters
