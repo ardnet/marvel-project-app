@@ -15,7 +15,7 @@ class SearchCharacters extends React.Component {
         let searchtext = this.props.searchtext;
         return (
             <div className="search-characters">
-                <input className="mr-sm-2" value={searchtext} onChange={this.handleCharChange} />
+                <input className="mr-sm-2" value={searchtext} onChange={this.handleCharChange} placeholder="Search..." />
             </div>
         )
     }
