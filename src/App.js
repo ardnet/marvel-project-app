@@ -1,6 +1,25 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import ListCharacters from './components/listcharacters';
 import SearchCharacters from './components/searchcharacters';
+import { throttle } from 'lodash';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `You clicked ${count} times.`;
+  });
+
+  return(
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click Me!
+      </button>
+    </div>
+  );
+}
+
 
 class App extends React.Component {
   constructor(props) {
@@ -10,6 +29,7 @@ class App extends React.Component {
       characters: [],
       searchcharacters: '',
     };
+    this.handleInputThrottled = throttle(this.handleSearchCharChange, 100);
   }
 
   handleEndpoint(searchtext) {
@@ -54,7 +74,7 @@ class App extends React.Component {
       <div>
         <h1>Marvel Characters</h1>
         <div className="search-characters-wrapper">
-          <SearchCharacters searchtext={searchtext} onSearchCharChange={this.handleSearchCharChange} />
+          <SearchCharacters searchtext={searchtext} onSearchCharChange={this.handleInputThrottled} />
         </div>
         <div className="list-characters-wrapper">
           {charactersItems}
